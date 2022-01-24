@@ -10,7 +10,7 @@ const Title = ({ tag, label }) => {
       <style jsx>
         {`
           ${Tag} {
-            color: ${appConfig.theme.colors.primary['400']};
+            color: ${appConfig.theme.colors.primary['100']};
           }
         `}
       </style>
