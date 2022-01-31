@@ -1,7 +1,14 @@
+import { useRef, useEffect } from 'react';
 import { Box, Text, Image } from '@skynexui/components';
 import appConfig from '../config.json';
 
 export default function MessageList({ messages }) {
+  const scrollToBottom = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom.current.scrollIntoView({ behavior: 'smooth' });
+  });
+
   return (
     <Box
       tag="ul"
@@ -17,6 +24,7 @@ export default function MessageList({ messages }) {
         maxHeight: '60vh',
       }}
     >
+      <div ref={scrollToBottom} />
       {messages.map(({ id, from, text }) => {
         return (
           <Text
@@ -59,7 +67,7 @@ export default function MessageList({ messages }) {
               </Text>
             </Box>
             {text.includes(':sticker:') ? (
-              <Image src={text.replace(':sticker:', '')} />
+              <Image width={120} src={text.replace(':sticker:', '')} />
             ) : (
               text
             )}

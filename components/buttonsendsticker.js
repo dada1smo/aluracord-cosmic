@@ -12,6 +12,7 @@ export default function ButtonSendSticker({ onStickerClick }) {
       }}
     >
       <Button
+        colorVariant="primary"
         styleSheet={{
           borderRadius: '50%',
           padding: '0 3px 0 0',
@@ -23,7 +24,8 @@ export default function ButtonSendSticker({ onStickerClick }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.neutrals[300],
+          borderColor: appConfig.theme.colors.primary[500],
+          backgroundColor: `${appConfig.theme.colors.primary[500]} !important`,
           filter: isOpen ? 'grayscale(0)' : 'grayscale(1)',
           hover: {
             filter: 'grayscale(0)',
