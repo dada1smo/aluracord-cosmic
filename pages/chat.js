@@ -36,11 +36,15 @@ export default function Chat() {
         setMessageList(data);
       });
 
-    chatListener((newMessage) => {
+    const subscription = chatListener((newMessage) => {
       setMessageList((currentMessages) => {
         return [newMessage, ...currentMessages];
       });
     });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   const handleNewMessage = (newMessage) => {

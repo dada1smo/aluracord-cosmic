@@ -15,15 +15,18 @@ export default function Header() {
       >
         <Text
           variant="heading4"
-          styleSheet={{ color: appConfig.theme.colors.neutrals[300] }}
+          styleSheet={{ color: appConfig.theme.colors.primary[100] }}
         >
           Chat
         </Text>
         <Button
-          variant="tertiary"
           colorVariant="neutral"
           label="Logout"
           href="/"
+          styleSheet={{
+            backgroundColor: appConfig.theme.colors.neutrals[900],
+            hover: { backgroundColor: appConfig.theme.colors.primary[800] },
+          }}
         />
       </Box>
     </>
